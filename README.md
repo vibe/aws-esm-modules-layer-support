@@ -140,7 +140,7 @@ You find his example solution here.[AWS Lambda ESM with Layer](https://github.co
 
 The downside to Tacker's solution is that you must include this boiler plate directly in every source file which can become a hassle.
 
-If you're practice Infrastructure as Code, it's makes it very easy to symlink the layer without each function having to be explicitly aware of the workaround.
+If you practice Infrastructure as Code, it's makes it very easy to symlink the layer without each function having to be explicitly aware of the workaround.
 
 
 
