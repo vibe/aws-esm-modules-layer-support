@@ -60,7 +60,7 @@ During runtime, the symlink will essentially act as a proxy to your layer.
 
 Tada! ezpz. 
 
-I use `cdk` in my projects, so here's an snippet extract from my construct that creates AWS Lambda resources.
+I use `cdk` in my projects, so here's an extracted snippet from my construct that creates AWS Lambda resources.
 
 ```javascript
         const dir = dirname(require.resolve('@whoami/sample-function'))
