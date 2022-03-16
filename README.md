@@ -35,7 +35,7 @@ A couple of goto suggestions that immediately come to mind...
 - Using a bundler
 - Include node_modules directly in the deployment package
 
-Both of these alternatives resolve around NOT using layers, however that introductions the limitions layers are used for. 
+Both of these alternatives resolve around NOT using layers, however that introduces the limitions layers are used for. 
 - Lack of sharability
 - Deployment package limition
 - Console "file is to big to edit" errors
