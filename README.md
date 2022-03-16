@@ -52,7 +52,7 @@ Working around the current limition is as simple as symlinking the layer path in
 This is accomplished at your build/deployment step when generating your zip artifact that is uploaded to AWS.
 
 1. Bundle your `node_modules` into a layer as normal
-2. Create a symlink in your source code directory that points to whichever runtime Layer Path you are using ( `/opt/nodejs/node_modules` or `/opt/nodejs/node14/node_modules')
+2. Create a symlink in your source code directory that points to whichever runtime Layer Path you are using ( `/opt/nodejs/node_modules` or `/opt/nodejs/node14/node_modules`)
 3. Zip up your source code and include the symlink
 4. Distribute your ZIP as normal
 
