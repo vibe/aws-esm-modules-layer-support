@@ -37,15 +37,15 @@ A couple of goto suggestions that immediately come to mind...
 
 Both of these alternatives resolve around NOT using layers, however that introduces the limitions layers are used for. 
 - Lack of sharability
-- Deployment package limition
-- Console "file is to big to edit" errors
+- Deployment package size limition
+- Console "file is too big to edit" errors
 - etc
 
 ## Solution
 
 Here's the thing, it's node.js all the way down. After I decompiled the [AWS Lambda Runtime](https://hub.docker.com/r/amazon/aws-lambda-nodejs) and reading the AWS specific code that bootstraps the environment, it's clear that all that needs to happen is for AWS Layer to provide additional [Layer Paths](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) for the node.js environment. 
 
-Currently the bootstrap scripts that run before your lambda handler, add the supported Layer paths into the `node_path` but instead what we need is the ability for `node_modules` to be mounted within the direct hireachy of the function code, since the module resolution alogrithm will look up `node_modules` starting at the function directory and work it's way up until it reaches the server root `/`.
+Currently the bootstrap scripts that run before your lambda handler add the supported Layer paths into the `node_path` but instead what we need is the ability for `node_modules` to be mounted within the direct hireachy of the function code, since the module resolution alogrithm will look up `node_modules` starting at the function directory and work it's way up until it reaches the server root `/`.
 
 Working around the current limition is as simple as symlinking the layer path into your function directory.
 
@@ -141,7 +141,6 @@ You find his example solution here.[AWS Lambda ESM with Layer](https://github.co
 The downside to Tacker's solution is that you must include this boiler plate directly in every source file which can become a hassle.
 
 If you practice Infrastructure as Code, it's makes it very easy to symlink the layer without each function having to be explicitly aware of the workaround.
-
 
 
 
