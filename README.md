@@ -2,6 +2,14 @@
 
 ### TLDR: Symlink your layer into your deployment package, and include the symlink (NOT the symlinked directory) into your artifact.
 
+*nix example: 
+```bash
+cd directory-with-function-code
+ln -s /opt/nodejs/node_modules node_modules
+zip --symlinks -r function.zip .
+```
+
+Nodejs Example:
 ```javascript
 symlinkSync('/opt/nodejs/node_modules', 'node_modules', 'dir')   
 process.chdir(cwd)
